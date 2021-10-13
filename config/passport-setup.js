@@ -5,18 +5,26 @@ const User = require('../models/user-schema');
 
 passport.use(
     new GoogleStrategy({
-        //options for google strategy
         callbackURL: '/auth/google/redirect',
         clientID: keys.google.clientID,
         clientSecret: keys.google.clientSecret
     }, (accessToken, refreshToken, profile, done) => {
-        //passport callback function
-        console.log(profile);
-        new User({
-            username: profile.displayName,
-            googleId: profile.id
-        }).save().then((newUser) => {
-            console.log('new user created: ' + newUser);
-        })
+        //check if user already exists in our database
+        User.findOne({ googleId: profile.id })
+            .then((currentUser) => {
+                if (currentUser) {
+                    //user present already
+                    console.log('user is: ' + currentUser);
+                }
+                else {
+                    //if not, create new user in db
+                    new User({
+                        username: profile.displayName,
+                        googleId: profile.id
+                    }).save().then((newUser) => {
+                        console.log('new user created: ' + newUser);
+                    })
+                }
+            })
     })
 );
