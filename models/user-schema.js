@@ -5,6 +5,6 @@ const userSchema = new mongoose.Schema({
     googleId: String
 });
 
-const User = mongoose.model('user',UserSchema);
+const User = mongoose.model('user',userSchema);
 
 module.exports = User;
