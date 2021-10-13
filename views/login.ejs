@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        nav ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: aquamarine;
+        }
+        nav li {
+            padding: 20px;
+            list-style-type: none;
+        }
+        nav a {
+            text-decoration: none;
+            color: red;
+        }
+        h1 {
+            color: midnightblue;
+            margin: 20px;
+        }
+        .google-btn {
+            background-color:#ff5353;
+            color: white;
+            font-size: 18px;
+            padding: 10px;
+            text-decoration: none;
+        }
+        main {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/auth/logout">Logout</a></li>
+            <li><a href="/auth/login">Login</a></li>
+            <li><a href="/">Home</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Login Using -</h1>
+    </header>
+    <main>
+        <a href="/auth/google" class="google-btn">Google+</a>
+    </main>
+</body>
+</html>
