@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth-routes');
+const profileRoutes = require('./routes/profile-routes');
 const passportSetup = require('./config/passport-setup');
 const cookieSession = require('cookie-session');
 const keys = require('./config/keys');
@@ -30,6 +31,7 @@ mongoose.connect(keys.mongodb.dbURI,{ useNewUrlParser: true, useUnifiedTopology:
 
 //routes
 app.use('/auth',authRoutes);
+app.use('/profile',profileRoutes);
 
 //home route
 app.get('/',(req,res) => {
